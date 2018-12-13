@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using NDesk.Options;
 
-namespace ArcDpsDupdater
+namespace ArcDpsUpdater
 {
     class Program
     {
