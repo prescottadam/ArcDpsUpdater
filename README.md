@@ -3,9 +3,10 @@ Simple executable to update ArcDPS for GW2
 
 ## Instructions
 
-1. Download zip file from binaries
-2. Unzip
-3. Run the exe
+1. Download zip file from [binaries](https://github.com/prescottadam/ArcDpsUpdater/tree/master/binaries)
+2. Unzip to where you want it to live
+3. (optional) Create a shortcut in a convenient location
+4. Run it
 
 ## Usage
 
