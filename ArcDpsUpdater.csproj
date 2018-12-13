@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{413BFCDF-B0A6-45A0-8591-BBBA5BB2B9A6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ArcDpsDupdater</RootNamespace>
-    <AssemblyName>ArcDpsDupdater</AssemblyName>
+    <RootNamespace>ArcDpsUpdater</RootNamespace>
+    <AssemblyName>ArcDpsUpdater</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
