@@ -14,4 +14,4 @@ The executable downloads the latest d3d9.dll from `https://www.deltaconnected.co
 saves it to the default target path, `C:\Program Files\Guild Wars 2\bin64\d3d9.dll`.
 
 Target path can be changed by using the `target` switch:
-`ArcDpsUpdater.exe --path="c:\my\custom\path\bin64\d3d9.dll"`
+`ArcDpsUpdater.exe --target="c:\my\custom\path\bin64\d3d9.dll"`
