@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Net;
 using NDesk.Options;
 
@@ -8,19 +9,24 @@ namespace ArcDpsUpdater
     {
         static void Main(string[] args)
         {
-            var source = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll";
-            var defaultTarget = @"C:\Program Files\Guild Wars 2\bin64\d3d9.dll";
-            var target = defaultTarget;
+            var arcDpsDll = "d3d9.dll";
+            var arcDpsSource = $"https://www.deltaconnected.com/arcdps/x64/{arcDpsDll}";
+
+            var buildTemplatesDll = "d3d9_arcdps_buildtemplates.dll";
+            var buildTemplatesSource = $"https://www.deltaconnected.com/arcdps/x64/buildtemplates/{buildTemplatesDll}";
+
+            var defaultTargetDir = @"C:\Program Files\Guild Wars 2\bin64";
+            var targetDir = defaultTargetDir;
 
             var argParser = new OptionSet()
-                .Add("t|target=", delegate (string x) { target = x; })
-                .Add("p|path=", delegate (string x) { target = x; });
+                .Add("t|target=", delegate (string x) { targetDir = x; })
+                .Add("p|path=", delegate (string x) { targetDir = x; });
             argParser.Parse(args);
 
-            if (!target.EndsWith("d3d9.dll", StringComparison.OrdinalIgnoreCase))
+            if (!Directory.Exists(targetDir))
             {
-                Console.WriteLine("Target path must be d3d9.dll");
-                Console.WriteLine($"Default path: {defaultTarget}");
+                Console.WriteLine("Target path a valid folder");
+                Console.WriteLine($"Default path: {defaultTargetDir}");
                 return;
             }
 
@@ -28,9 +34,10 @@ namespace ArcDpsUpdater
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile(source, target);
+                    client.DownloadFile(arcDpsSource, Path.Combine(targetDir, arcDpsDll));
+                    client.DownloadFile(buildTemplatesSource, Path.Combine(targetDir, buildTemplatesDll));
                 }
-                Console.WriteLine($"Successfully downloaded to {target}");
+                Console.WriteLine($"Successfully downloaded to {targetDir}");
             }
             catch (Exception ex)
             {
