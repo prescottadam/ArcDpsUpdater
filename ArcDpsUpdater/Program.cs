@@ -12,9 +12,6 @@ namespace ArcDpsUpdater
             var arcDpsDll = "d3d9.dll";
             var arcDpsSource = $"https://www.deltaconnected.com/arcdps/x64/{arcDpsDll}";
 
-            var buildTemplatesDll = "d3d9_arcdps_buildtemplates.dll";
-            var buildTemplatesSource = $"https://www.deltaconnected.com/arcdps/x64/buildtemplates/{buildTemplatesDll}";
-
             var defaultTargetDir = @"C:\Program Files\Guild Wars 2\bin64";
             var targetDir = defaultTargetDir;
 
@@ -35,7 +32,6 @@ namespace ArcDpsUpdater
                 using (var client = new WebClient())
                 {
                     client.DownloadFile(arcDpsSource, Path.Combine(targetDir, arcDpsDll));
-                    client.DownloadFile(buildTemplatesSource, Path.Combine(targetDir, buildTemplatesDll));
                 }
                 Console.WriteLine($"Successfully downloaded to {targetDir}");
             }
